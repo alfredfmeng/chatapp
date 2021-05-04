@@ -77,7 +77,7 @@ function ChatRoom() {
       <div>
         {messages &&
           messages.map((msg) => {
-            <ChatMessage key={msg.id} message={msg} />;
+            return <ChatMessage key={msg.id} message={msg} />;
           })}
       </div>
       <form onSubmit={sendMessage}>
