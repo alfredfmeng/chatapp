@@ -53,13 +53,43 @@ function SignOut() {
 function ChatRoom() {
   const messagesRef = firestore.collection("messages");
   const query = messagesRef.orderBy("createdAt").limitToLast(25);
+
   const [messages] = useCollectionData(query, { idField: "id" });
+
+  const [formValue, setFormValue] = useState("");
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+
+    const { uid, photoURL } = auth.currentUser;
+
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+      photoURL,
+    });
+    setFormValue("");
+  };
+
   return (
     <main>
-      {messages &&
-        messages.map((msg) => {
-          <ChatMessage key={msg.id} message={msg} />;
-        })}
+      <div>
+        {messages &&
+          messages.map((msg) => {
+            <ChatMessage key={msg.id} message={msg} />;
+          })}
+      </div>
+      <form onSubmit={sendMessage}>
+        <input
+          value={formValue}
+          onChange={(e) => setFormValue(e.target.value)}
+          placeholder="Write a message"
+        />
+        <button type="submit" disabled={!formValue}>
+          🕊️
+        </button>
+      </form>
     </main>
   );
 }
