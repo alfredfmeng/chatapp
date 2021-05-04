@@ -50,7 +50,10 @@ function SignOut() {
     auth.currentUser && <button onClick={() => auth.signOut()}>Sign Out</button>
   );
 }
-function ChatRoom() {}
+function ChatRoom() {
+  const messagesRef = firestore.collection("messages");
+  const query = messagesRef.orderBy("createdAt").limitToLast(25);
+}
 function ChatMessage() {}
 
 export default App;
