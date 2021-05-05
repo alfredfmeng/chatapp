@@ -72,6 +72,12 @@ function ChatRoom() {
     setFormValue("");
   };
 
+  const dummy = useRef();
+
+  useEffect(() => {
+    dummy.current.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <main>
       <div>
@@ -79,6 +85,7 @@ function ChatRoom() {
           messages.map((msg) => {
             return <ChatMessage key={msg.id} message={msg} />;
           })}
+        <span ref={dummy}></span>
       </div>
       <form onSubmit={sendMessage}>
         <input
