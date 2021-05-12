@@ -148,3 +148,33 @@ img {
   border-radius: 50%;
   margin: 2px 5px;
 }
+
+#signInButton {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+  width: 60%;
+  align-self: center;
+  border-radius: 10px;
+}
+
+#signOutButton {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+  width: 40%;
+  align-self: center;
+  border-radius: 10px;
+}

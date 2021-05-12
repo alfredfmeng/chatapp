@@ -42,12 +42,20 @@ function SignIn() {
     auth.signInWithPopup(provider);
   };
 
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
+  return (
+    <button id="signInButton" onClick={signInWithGoogle}>
+      Sign in with Google
+    </button>
+  );
 }
 
 function SignOut() {
   return (
-    auth.currentUser && <button onClick={() => auth.signOut()}>Sign Out</button>
+    auth.currentUser && (
+      <button id="signOutButton" onClick={() => auth.signOut()}>
+        Sign Out
+      </button>
+    )
   );
 }
 function ChatRoom() {
