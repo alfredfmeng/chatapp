@@ -127,6 +127,12 @@ p {
   overflow-wrap: anywhere;
 }
 
+@media only screen and (max-width: 300px) {
+  #msg-text {
+    overflow-wrap: anywhere;
+  }
+}
+
 .message {
   display: flex;
   align-items: center;
